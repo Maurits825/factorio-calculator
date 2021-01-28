@@ -3,6 +3,7 @@ import json
 
 DEFAULT_RESULT_COUNT = 1
 DEFAULT_ENERGY_REQUIRED = 0.5
+DEFAULT_CATEGORY = 'crafting'
 
 
 def main():
@@ -28,10 +29,15 @@ def format_ingredient_list(ingredient_list):
     return formatted_list
 
 
+# TODO make this return/create a class not a dict?
+# TODO make a recipe class here? with ingredients/inputs, result/outputs, craft/base_time, category
+# leave other things the same, so ingredients will be dict, so on? actually wont change the ['name/amount'] in calc func
 def format_recipes(data):
     recipes = dict()
     for item in data['recipe']:
         recipes[item] = dict()
+
+        recipes[item]['category'] = data['recipe'][item].get('category', DEFAULT_CATEGORY)
 
         if 'normal' in data['recipe'][item]:
             current_recipe = data['recipe'][item]['normal']
