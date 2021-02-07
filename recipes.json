@@ -52,7 +52,18 @@
     },
     "advanced-oil-processing": {
         "category": "oil-processing",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "name": "water",
+                "type": "fluid"
+            },
+            {
+                "amount": 100,
+                "name": "crude-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 25,
@@ -354,7 +365,14 @@
     },
     "basic-oil-processing": {
         "category": "oil-processing",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 100,
+                "fluidbox_index": 2,
+                "name": "crude-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 45,
@@ -368,6 +386,11 @@
     "battery": {
         "category": "chemistry",
         "ingredients": [
+            {
+                "amount": 20,
+                "name": "sulfuric-acid",
+                "type": "fluid"
+            },
             {
                 "amount": 1,
                 "name": "iron-plate",
@@ -833,7 +856,23 @@
     },
     "coal-liquefaction": {
         "category": "oil-processing",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 10,
+                "name": "coal",
+                "type": "item"
+            },
+            {
+                "amount": 25,
+                "name": "heavy-oil",
+                "type": "fluid"
+            },
+            {
+                "amount": 50,
+                "name": "steam",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 90,
@@ -898,6 +937,11 @@
                 "amount": 1,
                 "name": "iron-ore",
                 "type": "item"
+            },
+            {
+                "amount": 100,
+                "name": "water",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -1245,6 +1289,11 @@
                 "type": "item"
             },
             {
+                "amount": 15,
+                "name": "lubricant",
+                "type": "fluid"
+            },
+            {
                 "amount": 2,
                 "name": "electronic-circuit",
                 "type": "item"
@@ -1340,7 +1389,13 @@
     },
     "empty-barrel": {
         "category": "crafting",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "name": "steel-plate",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1352,7 +1407,14 @@
     },
     "empty-crude-oil-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "crude-oil-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1371,7 +1433,14 @@
     },
     "empty-heavy-oil-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "heavy-oil-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1390,7 +1459,14 @@
     },
     "empty-light-oil-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "light-oil-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1409,7 +1485,14 @@
     },
     "empty-lubricant-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "lubricant-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1428,7 +1511,14 @@
     },
     "empty-petroleum-gas-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "petroleum-gas-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1447,7 +1537,14 @@
     },
     "empty-sulfuric-acid-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "sulfuric-acid-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1466,7 +1563,14 @@
     },
     "empty-water-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "water-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 50,
@@ -1666,7 +1770,23 @@
     },
     "explosives": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 1,
+                "name": "sulfur",
+                "type": "item"
+            },
+            {
+                "amount": 1,
+                "name": "coal",
+                "type": "item"
+            },
+            {
+                "amount": 10,
+                "name": "water",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 2,
@@ -1716,6 +1836,11 @@
                 "amount": 10,
                 "name": "advanced-circuit",
                 "type": "item"
+            },
+            {
+                "amount": 80,
+                "name": "lubricant",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -1739,6 +1864,11 @@
                 "amount": 1,
                 "name": "fast-transport-belt",
                 "type": "item"
+            },
+            {
+                "amount": 20,
+                "name": "lubricant",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -1762,6 +1892,11 @@
                 "amount": 2,
                 "name": "fast-underground-belt",
                 "type": "item"
+            },
+            {
+                "amount": 40,
+                "name": "lubricant",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -1900,7 +2035,20 @@
     },
     "fill-crude-oil-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "crude-oil",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1913,7 +2061,20 @@
     },
     "fill-heavy-oil-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "heavy-oil",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1926,7 +2087,20 @@
     },
     "fill-light-oil-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "light-oil",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1939,7 +2113,20 @@
     },
     "fill-lubricant-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "lubricant",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1952,7 +2139,20 @@
     },
     "fill-petroleum-gas-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "petroleum-gas",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1965,7 +2165,20 @@
     },
     "fill-sulfuric-acid-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "sulfuric-acid",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -1978,7 +2191,20 @@
     },
     "fill-water-barrel": {
         "category": "crafting-with-fluid",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 50,
+                "catalyst_amount": 50,
+                "name": "water",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "catalyst_amount": 1,
+                "name": "empty-barrel",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -2055,7 +2281,18 @@
     },
     "flamethrower-ammo": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 5,
+                "name": "steel-plate",
+                "type": "item"
+            },
+            {
+                "amount": 100,
+                "name": "crude-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -2383,7 +2620,18 @@
     },
     "heavy-oil-cracking": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 30,
+                "name": "water",
+                "type": "fluid"
+            },
+            {
+                "amount": 40,
+                "name": "heavy-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 30,
@@ -2636,7 +2884,18 @@
     },
     "light-oil-cracking": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 30,
+                "name": "water",
+                "type": "fluid"
+            },
+            {
+                "amount": 30,
+                "name": "light-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 20,
@@ -2956,7 +3215,13 @@
     },
     "lubricant": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 10,
+                "name": "heavy-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 10,
@@ -3418,7 +3683,18 @@
     },
     "plastic-bar": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 20,
+                "name": "petroleum-gas",
+                "type": "fluid"
+            },
+            {
+                "amount": 1,
+                "name": "coal",
+                "type": "item"
+            }
+        ],
         "result": [
             {
                 "amount": 2,
@@ -3562,6 +3838,11 @@
                 "amount": 2,
                 "name": "advanced-circuit",
                 "type": "item"
+            },
+            {
+                "amount": 5,
+                "name": "sulfuric-acid",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -3916,6 +4197,11 @@
                 "amount": 1,
                 "name": "steel-plate",
                 "type": "item"
+            },
+            {
+                "amount": 100,
+                "name": "water",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -4054,6 +4340,11 @@
                 "amount": 10,
                 "name": "solid-fuel",
                 "type": "item"
+            },
+            {
+                "amount": 10,
+                "name": "light-oil",
+                "type": "fluid"
             }
         ],
         "result": [
@@ -4395,7 +4686,13 @@
     },
     "solid-fuel-from-heavy-oil": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 20,
+                "name": "heavy-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -4407,7 +4704,13 @@
     },
     "solid-fuel-from-light-oil": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 10,
+                "name": "light-oil",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -4419,7 +4722,13 @@
     },
     "solid-fuel-from-petroleum-gas": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 20,
+                "name": "petroleum-gas",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 1,
@@ -4918,7 +5227,18 @@
     },
     "sulfur": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 30,
+                "name": "water",
+                "type": "fluid"
+            },
+            {
+                "amount": 30,
+                "name": "petroleum-gas",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 2,
@@ -4930,7 +5250,23 @@
     },
     "sulfuric-acid": {
         "category": "chemistry",
-        "ingredients": [],
+        "ingredients": [
+            {
+                "amount": 5,
+                "name": "sulfur",
+                "type": "item"
+            },
+            {
+                "amount": 1,
+                "name": "iron-plate",
+                "type": "item"
+            },
+            {
+                "amount": 100,
+                "name": "water",
+                "type": "fluid"
+            }
+        ],
         "result": [
             {
                 "amount": 50,

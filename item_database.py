@@ -18,7 +18,7 @@ def format_ingredient_list(ingredient_list):
     formatted_list = []
     for ingredient in ingredient_list:
         if type(ingredient) is dict:
-            continue
+            formatted_list.append(ingredient)
         else:
             ingredient_dict = dict()
             ingredient_dict['amount'] = ingredient[1]
