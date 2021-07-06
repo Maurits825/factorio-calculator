@@ -132,9 +132,6 @@ class FactorioCalculator:
                                                                   output['amount'])
             item_info.assemblies_required = self.get_assembly_requirements(wanted_yield[item],
                                                                            item_info.output_pas[item_name])
-            # TODO make print summary a func
-            print("To make " + str(round(wanted_yield[item], 2)) + " " + item_name + " per sec, " +
-                  "you need " + str(round(item_info.assemblies_required, 2)) + " " + assembly_setup.name)
 
         for input_item in item_info.inputs:
             # TODO craft time is calced twice, this is OUTPUT craft time!
@@ -149,15 +146,22 @@ class FactorioCalculator:
 
         return item_info
 
-    def calculate(self, item, wanted_yield):
+    def calculate(self, item, wanted_yield, filters=[]):
         items = [item]
         wanted_yield_dict = {item: wanted_yield}
         info_list = []
 
-        self.calculate_input_tree(items, wanted_yield_dict, info_list, 0)
-        self.print_tree_summary(info_list)
+        self.calculate_input_tree(items, wanted_yield_dict, info_list, 0, filters)
+        #self.print_tree_summary(info_list)
 
-    def calculate_input_tree(self, items, wanted_yield, item_info_list, depth_index):
+        print("To make " + str(round(wanted_yield, 2)) + " " + item + " per sec")
+        if len(filters) > 0:
+            print("Skipping:")
+            print(filters)
+        summary = self.get_summary(info_list)
+        self.print_summary(summary)
+
+    def calculate_input_tree(self, items, wanted_yield, item_info_list, depth_index, filters=[]):
         """
 
         :param items:
@@ -167,6 +171,8 @@ class FactorioCalculator:
         :return:
         """
         for item in items:
+            if item in filters:
+                continue
             try:
                 recipe = self.recipes[item]
             except KeyError:
@@ -231,12 +237,28 @@ class FactorioCalculator:
                     item_info_list.append([item_info])
 
                 depth_index = depth_index + 1
-                self.calculate_input_tree(item_info.input_list, item_info.input_yield_ps, item_info_list, depth_index)
+                self.calculate_input_tree(item_info.input_list, item_info.input_yield_ps, item_info_list, depth_index, filters)
                 depth_index = depth_index - 1
 
 
                 #TODO make a total summary, a dict with the key the items, if key exists then add on the required assemblies
                 # TODO also with ability to remove/filter some items? like green circuits
+
+    def get_summary(self, item_info_list):
+        summary = dict()
+
+        for depth_list in item_info_list:
+            for item_info in depth_list:
+                if item_info.item in summary:
+                    summary[item_info.item] += item_info.assemblies_required
+                else:
+                    summary[item_info.item] = item_info.assemblies_required
+
+        return summary
+
+    def print_summary(self, summary):
+        for item_name in summary:
+            print("Item: " + item_name + ", assemblies: " + str(round(summary[item_name],2)))
 
     def print_tree_summary(self, item_info_list):
         print("\nTree Summary:\n---")
@@ -263,7 +285,7 @@ class FactorioCalculator:
 def main():
     factorio_calc = FactorioCalculator()
     factorio_calc.load_recipes('recipes.json')
-    factorio_calc.calculate('rail', 10)
+    factorio_calc.calculate('logistic-science-pack', 10, ['electronic-circuit'])
 
 
 if __name__ == '__main__':
