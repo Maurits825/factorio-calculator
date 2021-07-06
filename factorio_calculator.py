@@ -1,4 +1,5 @@
 import json
+import click
 
 #TODO better way for this, save as json of something?
 DEFAULT_ASSEMBLY_CRAFT_SPEED = 1.25
@@ -282,10 +283,14 @@ class FactorioCalculator:
             print("---")
 
 
-def main():
+@click.command()
+@click.option('--item', '-i', help='Name of the item')
+@click.option('--output_yield', '-o', help='Output yield per sec')
+@click.option('--filters', '-f', help='Output yield per sec', multiple=True)
+def main(item, output_yield, filters):
     factorio_calc = FactorioCalculator()
     factorio_calc.load_recipes('recipes.json')
-    factorio_calc.calculate('logistic-science-pack', 10, ['electronic-circuit'])
+    factorio_calc.calculate(item, float(output_yield), filters)
 
 
 if __name__ == '__main__':
