@@ -60,8 +60,9 @@ class ItemInfo:
 
 
 class FactorioCalculator:
-    def __init__(self):
+    def __init__(self, sort_ouput):
         self.recipes = None
+        self.sort_ouput = sort_ouput
 
     def load_recipes(self, json_file):
         """
@@ -199,6 +200,8 @@ class FactorioCalculator:
             # TODO how to handle yield for multiple outputs? -- oil processing and stuff -
             # TODO handle some fluids also, look at naming, the naming might not be the actual output like in crafting
 
+            # TODO some items cant have prod mod
+            #TODO we can make a json file with category and craft speed maybe?
             if category == "crafting" or category == "advanced-crafting" or category == "basic-crafting":
                 assembly_setup = AssemblySetup(DEFAULT_ASSEMBLY_CRAFT_SPEED, DEFAULT_ASSEMBLY_SPEED_MOD,
                                                DEFAULT_ASSEMBLY_PROD_MOD, "assembling-machine-3")
@@ -221,8 +224,9 @@ class FactorioCalculator:
                 assembly_setup = AssemblySetup(DEFAULT_OIL_CRAFT_SPEED, DEFAULT_OIL_SPEED_MOD,
                                                DEFAULT_OIL_PROD_MOD, "oil-refinery")
             else:
-                print("category: " + category + ", item: " + item)
-                assembly_setup = None
+                print("Unknow category: " + category + ", item: " + item)
+                assembly_setup = AssemblySetup(DEFAULT_ASSEMBLY_CRAFT_SPEED, DEFAULT_ASSEMBLY_SPEED_MOD,
+                                               DEFAULT_ASSEMBLY_PROD_MOD, "assembling-machine-3")
 
             if assembly_setup:
                 item_info = self.get_item_info(item, recipe, assembly_setup, wanted_yield)
@@ -258,8 +262,12 @@ class FactorioCalculator:
         return summary
 
     def print_summary(self, summary):
-        for item_name in summary:
-            print("Item: " + item_name + ", assemblies: " + str(round(summary[item_name],2)))
+        if self.sort_ouput:
+            for item_name in sorted(summary, key=summary.get, reverse=True):
+                print("Item: " + item_name + ", assemblies: " + str(round(summary[item_name], 2)))
+        else:
+            for item_name in summary:
+                print("Item: " + item_name + ", assemblies: " + str(round(summary[item_name], 2)))
 
     def print_tree_summary(self, item_info_list):
         print("\nTree Summary:\n---")
@@ -285,11 +293,13 @@ class FactorioCalculator:
 
 @click.command()
 @click.option('--item', '-i', help='Name of the item')
-@click.option('--output_yield', '-o', help='Output yield per sec')
-@click.option('--filters', '-f', help='Output yield per sec', multiple=True)
-def main(item, output_yield, filters):
-    factorio_calc = FactorioCalculator()
-    factorio_calc.load_recipes('recipes.json')
+@click.option('--output-yield', '-o', help='Output yield per sec')
+@click.option('--filters', '-f', help='Items to filter', multiple=True)
+@click.option('--recipe', '-r', help='Recipe file')
+@click.option('--sort-output', '-s', help='Sort output by assemblies', is_flag=True)
+def main(item, output_yield, filters, recipe, sort_output):
+    factorio_calc = FactorioCalculator(sort_output)
+    factorio_calc.load_recipes(recipe)
     factorio_calc.calculate(item, float(output_yield), filters)
 
 
